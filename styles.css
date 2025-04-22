@@ -1,0 +1,53 @@
+/* Simplified & updated styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e2e3e5;
+  color: #333;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 38px;
+  margin-top: 30px;
+}
+
+.card {
+  width: 325px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+}
+
+.card-content h1 {
+  font-size: 24px;
+}
+
+.checkout-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.checkout-list li {
+  background: #fff;
+  margin: 15px 0;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.checkout-list button {
+  background-color: #e0222e;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkout-list button:hover {
+  background-color: #b91d27;
+}
