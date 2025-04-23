@@ -12,11 +12,33 @@ header {
     height: 80px;
 }
 
+.page-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.side-panel {
+  width: 33%;
+  background-color: #dcdcdc; /* Light grey side panels */
+}
+
+.main-content {
+  width: 34%;
+  padding: 30px 20px;
+  background-color: #fff;
+}
+
 
 body {
   font-family: Arial, sans-serif;
   background-color: #e2e3e5;
   color: #333;
+}
+
+.book-cards h2 {
+  font-size: 30px;
+  margin: 40px 0 20px;
+  text-align: center;
 }
 
 .card-container {
@@ -53,6 +75,21 @@ body {
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+
+.checkout-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.basket-container {
+  max-width: 500px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 20px;
 }
 
 .checkout-list li {
