@@ -26,7 +26,7 @@ function displayProducts() {
         </div>
         <h1>${product.name}</h1>
         <p>£${product.price.toFixed(2)}</p>
-        <button class="add-to-basket" data-id="${product.id}">Add to Basket</button>
+        <button class="btn btn-danger" data-id="${product.id}">Add to Basket</button>
       </div>`;
     
     card.querySelector("button").addEventListener("click", () => addToBasket(product.id));
