@@ -1,7 +1,7 @@
 const products = [
   { id: 1, name: "LV coat", price: 1000.00, category: "Clothing", image: "LV.png" },
   { id: 2, name: "Gucci pullover", price: 500.00, category: "Clothing", image: "gucci.png"  },
-  { id: 3, name: "Supreme Hoodie", price: 60.00, category: "Electronics", image: "Supreme.png"  },
+  { id: 3, name: "Supreme Hoodie", price: 60.00, category: "Clothing", image: "Supreme.png"  },
   { id: 4, name: "PDM Haltane", price: 330.00, category: "Fragrances", image: "Haltane.png"  },
   { id: 5, name: "Asus 5090 GPU", price: 4000.00, category: "Electronics", image: "5090.png"  },
   { id: 6, name: "Green Irish Tweet", price: 280.00, category: "Fragrances", image: "Tweet.png"  },
