@@ -12,21 +12,32 @@ const products = [
 ];
 
 function displayProducts() {
-  const productList = document.getElementById("product-list");
+  const clothing = document.getElementById("clothing-products");
+  const electronics = document.getElementById("electronics-products");
+  const grocery = document.getElementById("fragrance-products");
+
   products.forEach(product => {
     const card = document.createElement("div");
     card.className = "card mb-3";
     card.innerHTML = `
       <div class="card-content">
-        <img src="${product.image}" alt="${product.name}" class="product-img">
+        <div class="img-container">
+          <img src="${product.image}" alt="${product.name}" class="product-img">
+        </div>
         <h1>${product.name}</h1>
         <p>£${product.price.toFixed(2)}</p>
-        <button class="btn btn-danger" data-id="${product.id}">Add to Basket</button>
+        <button class="add-to-basket" data-id="${product.id}">Add to Basket</button>
       </div>`;
+    
     card.querySelector("button").addEventListener("click", () => addToBasket(product.id));
-    productList.appendChild(card);
+
+    // Append to correct section
+    if (product.category === "Clothing") clothing.appendChild(card);
+    else if (product.category === "Electronics") electronics.appendChild(card);
+    else if (product.category === "Fragrances") grocery.appendChild(card);
   });
 }
+
 
 function addToBasket(productId) {
   let basket = JSON.parse(localStorage.getItem('basket')) || [];
