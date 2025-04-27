@@ -23,8 +23,8 @@ function displayBasket() {
 
  // Counter for shopping basket
 function updateBasketCounter() {
-  const basket = JSON.parse(localStorage.getItem('basket')) || [];
-  const count = basket.reduce((sum, item) => sum + item.quantity, 0);
+  const freshBasket = JSON.parse(localStorage.getItem('basket')) || [];
+  const count = freshBasket.reduce((sum, item) => sum + item.quantity, 0);
   const counterEl = document.getElementById('basket-count');
   if (counterEl) counterEl.textContent = count;
 }
