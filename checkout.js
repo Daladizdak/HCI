@@ -45,6 +45,7 @@ document.getElementById("checkout-btn").addEventListener("click", () => {
   basket = [];
   localStorage.removeItem('basket');
   displayBasket();
+  updateBasketCounter();
 });
 
 displayBasket();
