@@ -52,6 +52,7 @@ function addToBasket(productId) {
 
   localStorage.setItem('basket', JSON.stringify(basket));
   alert(`${product.name} added to your basket!`);
+  updateBasketCounter();
 }
 
  // Counter for shopping basket
