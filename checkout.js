@@ -27,6 +27,15 @@ function removeProduct(id) {
   displayBasket();
 }
 
+ // Counter for shopping basket
+function updateBasketCounter() {
+  const basket = JSON.parse(localStorage.getItem('basket')) || [];
+  const count = basket.reduce((sum, item) => sum + item.quantity, 0);
+  const counterEl = document.getElementById('basket-count');
+  if (counterEl) counterEl.textContent = count;
+}
+
+
 document.getElementById("checkout-btn").addEventListener("click", () => {
   let total = basket.reduce((sum, item) => sum + item.price * item.quantity, 0);
   alert(`Thank you! You paid £${total.toFixed(2)}.`);
