@@ -17,14 +17,14 @@ function displayBasket() {
           <span>x${product.quantity}</span>
           <div class="quantity-controls">
             <button class="btn btn-sm btn-outline-secondary decrease" data-id="${product.id}">-</button>
-            <button class="btn btn-sm btn-outline-danger mt-2" data-id="${product.id}">Remove</button>
+            <button class="btn btn-sm btn-outline-danger mt-2 remove" data-id="${product.id}">Remove</button>
             <button class="btn btn-sm btn-outline-secondary increase" data-id="${product.id}">+</button>
           </div>
         </div>
       </div>
     `;
 
-    li.querySelector("button").addEventListener("click", () => removeProduct(product.id));
+    li.querySelector(".remove").addEventListener("click", () => removeProduct(product.id));
     li.querySelector(".decrease").addEventListener("click", () => decreaseQuantity(product.id));
     li.querySelector(".increase").addEventListener("click", () => increaseQuantity(product.id));
     basketList.appendChild(li);
