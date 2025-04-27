@@ -103,6 +103,25 @@ header {
   padding: 20px;
 }
 
+.basket-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.basket-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.basket-item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+
 .checkout-list {
   list-style-type: none;
   padding: 0;
