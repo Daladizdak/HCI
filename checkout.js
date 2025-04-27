@@ -21,12 +21,6 @@ function displayBasket() {
   totalEl.textContent = total.toFixed(2);
 }
 
-function removeProduct(id) {
-  basket = basket.filter(item => item.id !== id);
-  localStorage.setItem('basket', JSON.stringify(basket));
-  displayBasket();
-}
-
  // Counter for shopping basket
 function updateBasketCounter() {
   const basket = JSON.parse(localStorage.getItem('basket')) || [];
@@ -34,6 +28,15 @@ function updateBasketCounter() {
   const counterEl = document.getElementById('basket-count');
   if (counterEl) counterEl.textContent = count;
 }
+
+
+function removeProduct(id) {
+  basket = basket.filter(item => item.id !== id);
+  localStorage.setItem('basket', JSON.stringify(basket));
+  displayBasket();
+  updateBasketCounter();
+}
+
 
 
 document.getElementById("checkout-btn").addEventListener("click", () => {
@@ -45,3 +48,4 @@ document.getElementById("checkout-btn").addEventListener("click", () => {
 });
 
 displayBasket();
+updateBasketCounter();
