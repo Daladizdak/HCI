@@ -34,6 +34,7 @@ function removeProduct(id) {
   basket = basket.filter(item => item.id !== id);
   localStorage.setItem('basket', JSON.stringify(basket));
   displayBasket();
+  updateBasketCounter();
 }
 
 
