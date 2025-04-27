@@ -156,3 +156,36 @@ footer {
   font-weight: bold;
 }
 
+/* Mobile-friendly Layout */
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column;
+  }
+
+  .side-panel {
+    display: none; /* Hide the grey side panels */
+  }
+
+  .main-content {
+    width: 100%; /* Full width on small screens */
+    padding: 20px;
+  }
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%; /* Cards take up most of the screen on mobile */
+  }
+
+  .checkout-wrapper {
+    padding: 20px;
+  }
+
+  .basket-container {
+    width: 100%;
+  }
+}
+
