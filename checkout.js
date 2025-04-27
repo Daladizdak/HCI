@@ -9,10 +9,17 @@ function displayBasket() {
   basket.forEach(product => {
     const li = document.createElement('li');
     li.innerHTML = `
-      <h3>${product.name}</h3>
-      <span>£${product.price.toFixed(2)}</span>
-      <span>x${product.quantity}</span>
-      <button class="btn btn-sm btn-outline-danger" data-id="${product.id}">Remove</button>`;
+      <div class="basket-item">
+        <img src="${product.image}" alt="${product.name}" class="basket-img">
+        <div class="basket-item-details">
+          <h3>${product.name}</h3>
+          <span>£${product.price.toFixed(2)}</span>
+          <span>x${product.quantity}</span>
+          <button class="btn btn-sm btn-outline-danger mt-2" data-id="${product.id}">Remove</button>
+        </div>
+      </div>
+    `;
+
     li.querySelector("button").addEventListener("click", () => removeProduct(product.id));
     basketList.appendChild(li);
     total += product.price * product.quantity;
