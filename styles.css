@@ -1,5 +1,6 @@
 /* === General Body & Font === */
 body {
+  padding-top: 100px;
   font-family: Arial, sans-serif;
   background-color: #e2e3e5;
   color: #333;
@@ -7,6 +8,11 @@ body {
 
 /* === Header Styling === */
 header {
+  position: fixed; /* NEW: fixes the header at top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999; /* makes sure it's always on top */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,6 +20,7 @@ header {
   background: #002147;
   color: white;
 }
+
 
 .logo {
   height: 80px;
