@@ -14,7 +14,7 @@ const products = [
 function displayProducts() {
   const clothing = document.getElementById("clothing-products");
   const electronics = document.getElementById("electronics-products");
-  const grocery = document.getElementById("fragrance-products");
+  const fragrances = document.getElementById("fragrance-products");
 
   products.forEach(product => {
     const card = document.createElement("div");
@@ -31,13 +31,16 @@ function displayProducts() {
     
     card.querySelector("button").addEventListener("click", () => addToBasket(product.id));
 
-    // Append to correct section
-    if (product.category === "Clothing") clothing.appendChild(card);
-    else if (product.category === "Electronics") electronics.appendChild(card);
-    else if (product.category === "Fragrances") grocery.appendChild(card);
+    // Only append if the container exists
+    if (product.category === "Clothing" && clothing) {
+      clothing.appendChild(card);
+    } else if (product.category === "Electronics" && electronics) {
+      electronics.appendChild(card);
+    } else if (product.category === "Fragrances" && fragrances) {
+      fragrances.appendChild(card);
+    }
   });
 }
-
 
 function addToBasket(productId) {
   let basket = JSON.parse(localStorage.getItem('basket')) || [];
@@ -57,8 +60,8 @@ function addToBasket(productId) {
 
  // Counter for shopping basket
 function updateBasketCounter() {
-  const freshBasket = JSON.parse(localStorage.getItem('basket')) || [];
-  const count = freshBasket.reduce((sum, item) => sum + item.quantity, 0);
+  const basket = JSON.parse(localStorage.getItem('basket')) || [];
+  const count = basket.reduce((sum, item) => sum + item.quantity, 0);
   const counterEl = document.getElementById('basket-count');
   if (counterEl) counterEl.textContent = count;
 }
