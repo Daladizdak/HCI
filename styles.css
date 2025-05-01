@@ -22,7 +22,7 @@ header {
 }
 
 .navbar-wrapper {
-  width: 34%;
+  width: 40%;
   margin: 0 auto; /* Center it horizontally */
   z-index: 1000;
 }
