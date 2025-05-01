@@ -93,7 +93,7 @@ function removeProduct(id) {
 // Sends the user back to the main page
 document.getElementById('continue-shopping-btn').addEventListener('click', () => {
   window.location.href = 'index.html';
-
+});
 // Show Bootstrap modal on checkout
 const checkoutForm = document.getElementById('checkout-form');
 const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'));
