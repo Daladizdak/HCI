@@ -21,6 +21,11 @@ header {
   color: white;
 }
 
+.navbar-wrapper {
+  width: 34%;
+  margin: 0 auto; /* Center it horizontally */
+  z-index: 1000;
+}
 
 .logo {
   height: 80px;
