@@ -8,11 +8,11 @@ body {
 
 /* === Header Styling === */
 header {
-  position: fixed; /* NEW: fixes the header at top */
+  position: fixed; /* Fixes the position for the header */
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999; /* makes sure it's always on top */
+  z-index: 999; /* Makes sure that the fixed position is at the top */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,11 +27,6 @@ header {
   z-index: 1000;
 }
 
-.navbar-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .logo {
   height: 80px;
