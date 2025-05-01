@@ -27,6 +27,12 @@ header {
   z-index: 1000;
 }
 
+.navbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .logo {
   height: 80px;
 }
