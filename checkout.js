@@ -6,6 +6,7 @@ function displayBasket() {
   basketList.innerHTML = '';
   let total = 0;
 
+   // Makes the product card for the basket section which includes the item image, name, quantity and price
   basket.forEach(product => {
     const li = document.createElement('li');
     li.innerHTML = `
@@ -34,7 +35,7 @@ function displayBasket() {
   totalEl.textContent = total.toFixed(2);
 }
 
- // Counter for shopping basket
+ // Whenever an items gets added to the basket, the counter increases by one
 function updateBasketCounter() {
   const freshBasket = JSON.parse(localStorage.getItem('basket')) || [];
   const count = freshBasket.reduce((sum, item) => sum + item.quantity, 0);
@@ -42,6 +43,8 @@ function updateBasketCounter() {
   if (counterEl) counterEl.textContent = count;
 }
 
+// If the user click on the - sign, the quantity of the item decreases by one
+// If there is only one of that item in the basket, the user gets a norification saying they are about to remove the item from the basket.
 function decreaseQuantity(id) {
   const item = basket.find(product => product.id === id);
   
@@ -53,7 +56,7 @@ function decreaseQuantity(id) {
       if (confirmDelete) {
         basket = basket.filter(product => product.id !== id);
       } else {
-        return; // exit without doing anything
+        return; 
       }
     }
     localStorage.setItem('basket', JSON.stringify(basket));
@@ -62,6 +65,7 @@ function decreaseQuantity(id) {
   }
 }
 
+// If the user click on the + sign, the quantity of the item increases by one
 function increaseQuantity(id) {
   const item = basket.find(product => product.id === id);
   if (item) {
@@ -73,7 +77,8 @@ function increaseQuantity(id) {
 }
 
 
-
+// When the user clicks on remove product, then get a confirmation dialog asking if they want to remove the item from the basket
+// if they click yes, the item gets deleted.
 function removeProduct(id) {
   const product = basket.find(item => item.id === id);
   const confirmDelete = confirm(`Are you sure you want to remove "${product.name}" from your basket?`);
@@ -108,6 +113,18 @@ checkoutForm.addEventListener('submit', (e) => {
 
   if (!name || !lastName || !card) {
     alert('Please fill in all fields.');
+    return;
+  }
+  
+ // Makes sure that the Name and the last name sections are letters
+    if (!isNaN(name) || !isNaN(lastName)) {
+    alert('First Name and Last Name must be words, not numbers.');
+    return;
+  }
+
+  // makes sure the card secion is only numbers
+  if (isNaN(card)) {
+    alert('Card number must be a number.');
     return;
   }
 
