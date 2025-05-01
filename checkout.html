@@ -12,6 +12,7 @@
 <body>
   <div id="header-container"></div>
 
+<!-- Product card for the basket -->
 <div class="checkout-wrapper">
   <div class="basket-container">
     <h2>Basket</h2>
@@ -23,7 +24,38 @@
   </div>
 </div>
 
-  </main>
+  <!-- Bootstrap modal for checkout information -->
+<div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="checkout-form">
+        <div class="modal-header">
+          <h5 class="modal-title" id="checkoutModalLabel">Checkout</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="first-name" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="first-name" required>
+          </div>
+          <div class="mb-3">
+            <label for="last-name" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="last-name" required>
+          </div>
+          <div class="mb-3">
+            <label for="card-number" class="form-label">Card Number</label>
+            <input type="text" class="form-control" id="card-number" required>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Pay</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+  
 
   <footer>
     <p>Wolfie Merchant</p>
