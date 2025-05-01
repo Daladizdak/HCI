@@ -85,15 +85,41 @@ function removeProduct(id) {
   }
 }
 
-
+// Show Bootstrap modal on checkout
+const checkoutForm = document.getElementById('checkout-form');
+const checkoutModal = new bootstrap.Modal(document.getElementById('checkoutModal'));
 
 document.getElementById("checkout-btn").addEventListener("click", () => {
+  if (basket.length === 0) {
+    alert("Your basket is empty.");
+    return;
+  }
+  checkoutModal.show();
+});
+
+
+// Handle checkout form submit
+checkoutForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById('first-name').value.trim();
+  const lastName = document.getElementById('last-name').value.trim();
+  const card = document.getElementById('card-number').value.trim();
+
+  if (!name || !lastName || !card) {
+    alert('Please fill in all fields.');
+    return;
+  }
+
   let total = basket.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  alert(`Thank you! You paid £${total.toFixed(2)}.`);
+  alert(`Thank you, ${name} ${lastName}! You paid £${total.toFixed(2)}.`);
+
   basket = [];
   localStorage.removeItem('basket');
   displayBasket();
   updateBasketCounter();
+  checkoutForm.reset();
+  checkoutModal.hide();
 });
 
 displayBasket();
