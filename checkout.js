@@ -44,11 +44,17 @@ function updateBasketCounter() {
 
 function decreaseQuantity(id) {
   const item = basket.find(product => product.id === id);
+  
   if (item) {
     if (item.quantity > 1) {
       item.quantity -= 1;
     } else {
-      basket = basket.filter(product => product.id !== id); // remove completely
+      const confirmDelete = confirm(`Quantity is 1. Do you want to remove "${item.name}" from your basket?`);
+      if (confirmDelete) {
+        basket = basket.filter(product => product.id !== id);
+      } else {
+        return; // exit without doing anything
+      }
     }
     localStorage.setItem('basket', JSON.stringify(basket));
     displayBasket();
@@ -69,10 +75,14 @@ function increaseQuantity(id) {
 
 
 function removeProduct(id) {
-  basket = basket.filter(item => item.id !== id);
-  localStorage.setItem('basket', JSON.stringify(basket));
-  displayBasket();
-  updateBasketCounter();
+  const product = basket.find(item => item.id === id);
+  const confirmDelete = confirm(`Are you sure you want to remove "${product.name}" from your basket?`);
+  if (confirmDelete) {
+    basket = basket.filter(item => item.id !== id);
+    localStorage.setItem('basket', JSON.stringify(basket));
+    displayBasket();
+    updateBasketCounter();
+  }
 }
 
 
